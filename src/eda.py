@@ -1,19 +1,3 @@
-# df = pd.read_csv('/mnt/01A460F67A4DAD69/Documents/ThoughtWorks/trainingData.csv')
-# import eda
-# import importlib
-# importlib.reload(eda)
-
-# eda_obj = eda.eda(df)
-# eda_obj.missingValue()
-# eda_obj.valueTypes()
-# eda_obj.cardinality()
-# eda_obj.sample_records()
-# eda_obj.pandas_describe()
-# eda_obj.eda()
-# df.pipe(driver_distance_to_pickup)
-#         .pipe(hour_of_day)
-#         .pipe(driver_historical_completed_bookings)
-
 import pandas as pd
 class eda:
     """
