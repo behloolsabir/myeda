@@ -1,8 +1,9 @@
 import pandas as pd
+import outlier
 class eda:
     """
     Usage: 
-    df = pd.read_csv('/mnt/01A460F67A4DAD69/Documents/ThoughtWorks/trainingData.csv')
+    df = pd.read_csv('trainingData.csv')
     eda_obj = eda()
     eda_obj.eda(df)
     """
@@ -28,10 +29,15 @@ class eda:
         desc = self.df.describe().T.rename_axis('columns').reset_index()
         self.df_eda = self.df_eda.merge(desc, on='columns', how='left')
         return self.df_eda
+    def getOutliersIQR(self):
+        self.df_eda['outlier_IQR'] = outlier.getOutliersIQR(self.df)
+        return self.df_eda
+
     def eda(self):
         self.missingValue()
         self.valueTypes()
         self.cardinality()
         self.sampleRecords()
         self.pandas_describe()
+        self.getOutliersIQR()
         return self.df_eda
